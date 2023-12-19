@@ -1,0 +1,131 @@
+#################################################################################
+#       USERS
+#################################################################################
+### get users
+GET http://127.0.0.1:8000/users/
+
+### get by id
+GET http://127.0.0.1:8000/user/be97e83e-5edd-4dfa-b74d-4c09d3fad81f
+
+### post 
+POST http://127.0.0.1:8000/createUser/
+Content-Type: application/json
+
+{
+    "name":"Cristhian Villca Mamani",
+    "email":"Crismas@gmail.com",
+    "username":"crimas",
+    "age":24,
+    "password":"crimas",
+    "gender":"MALE"
+}
+
+### put
+PUT http://127.0.0.1:8000/updateUser/be97e83e-5edd-4dfa-b74d-4c09d3fad81f
+Content-Type: application/json
+
+{
+    "name":"Cristhian Villca",
+    "email":"Crismas@gmail.com",
+    "username":"crimas",
+    "age":24,
+    "password":"crimas",
+    "gender":"MALE"
+}
+
+### delete
+DELETE http://127.0.0.1:8000/deleteUser/2d6ebb25-2f3c-48a6-9442-592ebfab49c8
+
+#################################################################################
+#       BOARDS
+#################################################################################
+GET http://localhost:8000/boards/
+
+### get by id
+GET http://localhost:8000/board/7d48b996-2cc9-485d-be72-206f7dcf160a
+
+### post 
+POST http://localhost:8000/createBoard/
+Content-Type: application/json
+
+{
+    "users":["056c7039-49ba-41f7-8a16-7d637215e2ae"],
+    "title":"actividades de la semana",
+    "description":"actividades y operaciones que realizar en la semana."
+}
+
+### put
+PUT http://localhost:8000/updateBoard/7d48b996-2cc9-485d-be72-206f7dcf160a
+Content-Type: application/json
+
+{    
+    "users":["056c7039-49ba-41f7-8a16-7d637215e2ae"],
+    "title":"actividades de la semana final",
+    "description":"actividades y operaciones que realizar en la semana."
+}
+
+### delete
+DELETE http://localhost:8000/deleteBoard/7d48b996-2cc9-485d-be72-206f7dcf160a
+
+#################################################################################
+#       LISTS
+#################################################################################
+GET http://localhost:8000/lists/
+
+### get by id
+GET http://localhost:8000/list/d5f97cd6-7b9c-42d4-9d7f-0bc294bb27f3
+
+### post 
+POST http://localhost:8000/createList/
+Content-Type: application/json
+
+{
+    "board": "7d48b996-2cc9-485d-be72-206f7dcf160a",
+    "title":"Lista del dia viernes",
+    "description":"proyectos a realizar para este dia viernes."
+}
+
+### put
+PUT http://localhost:8000/updateList/d5f97cd6-7b9c-42d4-9d7f-0bc294bb27f3
+Content-Type: application/json
+
+{
+    "board": "7d48b996-2cc9-485d-be72-206f7dcf160a",
+    "title":"Lista del dia viernes final",
+    "description":"proyectos a realizar para este dia viernes."
+}
+
+### delete
+DELETE http://localhost:8000/deleteList/d5f97cd6-7b9c-42d4-9d7f-0bc294bb27f3
+
+#################################################################################
+#       TASK
+#################################################################################
+GET http://localhost:8000/tasks/
+
+### get by id
+GET http://localhost:8000/task/32870f34-0046-4b53-8943-a253d8fbb0b9
+
+### post 
+POST http://localhost:8000/createTask/
+Content-Type: application/json
+
+{
+    "list": "d5f97cd6-7b9c-42d4-9d7f-0bc294bb27f3",
+    "title": "Creas aplicaciones web con nest.js",
+    "description": "Desarrollo web de una api rest full para nest.js y postgres",
+    "dueDate": "2023-12-13T01:27:45.978Z",
+    "status": "NEW"
+}
+
+### put
+PUT http://localhost:8000/updateTask/32870f34-0046-4b53-8943-a253d8fbb0b9
+Content-Type: application/json
+
+{    
+    "listId":"646d2327-1190-4f94-a35d-8fc8d894169a",
+    "description":"desarollo con nestJs"
+}
+
+### delete
+DELETE http://localhost:8000/deleteTask/32870f34-0046-4b53-8943-a253d8fbb0b9
